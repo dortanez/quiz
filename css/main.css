@@ -4,3 +4,17 @@ body {
 	background-position: cover;
 
 }
+
+#questionForm {
+	text-align: center;
+	width: 65%;
+	padding: 5% 5% 2% 5%;
+	border: 2px solid grey;
+
+}
+
+.questionWrap {
+	text-align: left;
+	display: block;
+
+}

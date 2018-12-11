@@ -27,23 +27,9 @@
 			</div>
 		</header>
 
-		<div id="quizApp" class="m-auto bg-primary p-5 col-8">
-
-			<div v-if="introView">
-				<button @click="startQuiz" class="start mx-5 my-5">Start Quiz</button>
-			</div>
-
-			<div v-if="questionsView">
-				<label></label>
-
-				
-			</div>
-
-			<div iv-if="resultsView">
-				
-			</div>
-			
-		</div>
+		<form id="questionForm" class="m-auto bg-light">
+			<button id="startBtn" type="button" onclick="startGame()">Start Quiz</button>
+		</form>
 
 
 

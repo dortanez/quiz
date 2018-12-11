@@ -46,21 +46,85 @@ var questions = [
 	}
 ]
 
+var questionForm = document.getElementById("questionForm");
 
-new Vue({
-	el: "#quizApp",
-	data: {
-		introView: false,
-		questionsView: false,
-		resultsView: false,
-		questions:[],
-		answer:[]
-	},
-	methods: {
-		startQuiz: function() {
-			this.introView = false;
-			this.questionsView = true;
+//Begin game when start button is clicked//////////////////
+function startGame() {
+
+	questionForm.innerHTML = "";
+
+	//Loading the first question//////////////////////////
+	createQuestion();
+};
+
+function createQuestion() {
+
+	for(var i = 0; i < 1; i++) {
+
+		// Creating elements for the questions and adding to DOM
+		var formGroup = document.createElement("div");
+		var newQuestion = document.createElement("h3");
+
+		newQuestion.id = "questions" + [i];
+		newQuestion.className = "mb-5";
+		newQuestion.id = "questions" + [i]
+
+		var questionText = document.createTextNode(questions[i].question);
+
+		newQuestion.appendChild(questionText);
+
+		formGroup.appendChild(newQuestion);
+
+		questionForm.appendChild(formGroup);
+
+
+		//Adding answers to DOM//////////
+		for(var x = 0; x < questions[i].answers.length; x++) {
+
+			var answerDiv = document.createElement("div");
+			var newAnswer = document.createElement("input");
+
+			var answerText = document.createTextNode(" " + questions[i].answers[x]);
+
+			answerDiv.appendChild(newAnswer);
+			answerDiv.appendChild(answerText);
+
+			answerDiv.className = "questionWrap mt-3";
+			newAnswer.type = "radio";
+			newAnswer.name = "radio" + [i];
+			newAnswer.value = questions[i].answers[x];
+
+
+			formGroup.appendChild(answerDiv);
+		};
+	};
+
+	var submit = document.createElement("button");
+
+	submit.className = "btn btn-lg btn-primary mt-5";
+	submit.textContent = "Submit Answer";
+	submit.onclick = submitAnswer;
+	submit.type = "button";
+
+	questionForm.appendChild(submit);
+};
+
+var cheer = 0;
+var fun = 0;
+var grumpy = 0;
+var share = 0;
+
+function submitAnswer() {
+
+	var els = document.getElementsByTagName("input");
+
+	for(var i = 0; i < els.length; i++) {
+
+		if(els[i].checked == "1") { 
+			console.log(i)
 		}
+
 	}
 
-})
+
+}
